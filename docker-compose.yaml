@@ -1,0 +1,17 @@
+networks:
+  frontend:
+    external: ${PROXY_EXT-true}
+    name: ${PROXY_NETWORK}
+
+services:
+  cinny:
+    image: louislam/uptime-kuma:${IMAGE_TAG}
+    container_name: uptime-kuma
+    restart: unless-stopped
+    volumes:
+      - ${VOLUME_PATH}:/app/data
+    networks:
+      - frontend
+    # Uncomment if you're not using a Docker network for proxying
+    # ports:
+    #   - 3001:3001
