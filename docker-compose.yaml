@@ -4,7 +4,7 @@ networks:
     name: ${PROXY_NETWORK}
 
 services:
-  cinny:
+  uptime:
     image: louislam/uptime-kuma:${IMAGE_TAG}
     container_name: uptime-kuma
     restart: unless-stopped
